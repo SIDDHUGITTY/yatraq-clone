@@ -1,0 +1,62 @@
+{
+  "expo": {
+    "name": "YatraQ",
+    "slug": "practice",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/applogo.png",
+    "scheme": "yatraq",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "extra": {
+      "API_URL": "https://bustrackingsystemnew-production.up.railway.app",
+      "router": {},
+      "eas": {
+        "projectId": "10d261ad-a950-49aa-b72f-4aafe004f23d"
+      }
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.srinivas.practice",
+      "config": {
+        "googleMapsApiKey": "AIzaSyDZNKiJhmxhMP0TikvbX6zCMef-1SlUwHQ"
+      }
+    },
+    "android": {
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_FINE_LOCATION"
+      ],
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive_icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true,
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyDZNKiJhmxhMP0TikvbX6zCMef-1SlUwHQ"
+        }
+      },
+      "package": "com.srinivas.practice"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash_icon.png",
+          "imageWidth": 200,
+          "backgroundColor": "#ffffff"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
