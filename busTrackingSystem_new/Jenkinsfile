@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('SCM CHECKOUT') {
             steps {
-                git branch: 'main', changelog: false, credentialsId: 'creds', poll: false, url: 'https://github.com/Bus-Tracking-Project/YatraQ-project.git'
+                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/SIDDHUGITTY/yatraq-clone.git'
             }
         }
         stage('SETUP') {
