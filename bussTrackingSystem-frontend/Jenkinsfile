@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+
+    environment {
+        IMAGE_NAME = "frontend-image"
+        CONTAINER_NAME = "frontend-container"
+        PORT = "8081"
+    }
+
+    stages {
+        stage('SCM CHECKOUT') {
+            steps {
+                git branch: 'main', changelog: false, credentialsId: 'creds', poll: false, url: 'https://github.com/Bus-Tracking-Project/YatraQ-project.git'
+            }
+        }
+      stage('SETUP') {
+            steps {
+                sh '''rm -rf busTrackingSystem_new
+                      rm -rf dashboards-manager'''
+            }
+        }
+        stage('CLEANUP') {
+            steps {
+                sh """
+                   if [ \$(docker ps -aq -f name=${CONTAINER_NAME}) ]; then
+                       echo "Stopping and removing old container..."
+                       docker stop ${CONTAINER_NAME}
+                       docker rm ${CONTAINER_NAME}
+                       echo "Removing old images..."
+                       docker rmi -f ${IMAGE_NAME}
+                   fi
+                """
+            }
+        }
+        stage('BUILD & RUN') {
+            steps {
+                sh '''cd bussTrackingSystem-frontend
+                docker compose up --build -d'''
+            }
+        }
+    }
+}
