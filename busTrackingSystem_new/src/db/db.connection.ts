@@ -5,7 +5,7 @@ import { User } from './schema';
 let pool: Pool;
 try {
   pool = new Pool({
-    host: process.env.DB_HOST || process.env.db_Host || '13.201.80.103',
+    host: process.env.DB_HOST || process.env.db_Host || 'localhost',
     port: Number(process.env.DB_PORT || process.env.db_port) || 5432,
     user: process.env.DB_USER || process.env.db_Username || 'postgres',
     password: process.env.DB_PASSWORD || process.env.db_password || 'rahul',
